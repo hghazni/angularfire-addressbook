@@ -1,7 +1,7 @@
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let listing of Harry">
     <!--<a routerLink="'/listing/'+listing.$key">{{listing.name}}</a>-->
-    <a routerLink="'/listing/'+listing.$key">{{listing.name}}</a>
+    <a routerLink="'/listing/'+ {{listing.$key}}">{{listing.name}}</a>
   </li>
   <li class="list-group-item" *ngFor="let listing of Harry">
     <a>{{listing.email}}</a>
@@ -13,3 +13,9 @@
     <a>{{listing.address}}</a>
   </li>
 </ul>
+
+<!--<ul>-->
+  <!--<li *ngFor="let listing of Harry | async">-->
+    <!--{{listing.$key}}: {{listing.$value}}-->
+  <!--</li>-->
+<!--</ul>-->

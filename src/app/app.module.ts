@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { AddListingComponent } from './components/add-listing/add-listing.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyDBJhQcXoiCnCUvpYeTDtHqJSV9sVjMN3w',
@@ -25,8 +26,9 @@ export const firebaseConfig = {
 const appRoutes: Routes  = [
   {path: '', component: HomeComponent },
   {path: 'listings', component: ListingsComponent },
+  {path: 'listings/:id', component: ListingsComponent },
   {path: 'add-listings', component: AddListingComponent }
-]
+];
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ const appRoutes: Routes  = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlashMessagesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],

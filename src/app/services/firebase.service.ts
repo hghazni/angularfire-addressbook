@@ -1,24 +1,48 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {AngularFire, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+// import * as firebase from 'firebase';
+import {firebaseConfig} from "../app.module";
+import * as firebase from "firebase/app";
 
 @Injectable()
 export class FirebaseService {
-listings: FirebaseListObservable<any[]>;
+  listings: FirebaseListObservable<any[]>;
+  listing: FirebaseObjectObservable<any[]>;
+  folder: any;
 
-constructor(private af: AngularFire) { }
+  constructor(private af: AngularFire) {
+    this.folder = 'listingimages';
+  }
 
   getListings() {
-    this.listings = this.af.database.list('/listings') as FirebaseListObservable<Listing[]>;
+    this.listings = this.af.database.list('/Harry') as FirebaseListObservable<Listing[]>;
     return this.listings;
+  }
+
+  getListingDetails(id) {
+    this.listing = this.af.database.object('/listing/' + id) as FirebaseObjectObservable<Listing[]>;
+    return this.listing;
+  }
+
+  addListing(listing) {
+    const storageRef = firebase.storage().ref();
+    for (const selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+      const path = `/${this.folder}/${selectedFile.name}`;
+      const iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        listing.image = selectedFile.name;
+        listing.path = path;
+        return this.listings.push(listing);
+      });
+    }
   }
 
 }
 
 interface Listing {
   $key?: string;
-  title?: string;
-  type?: string;
-  image?: string;
-  owner?: string;
-  bedrooms?: string;
+  name?: string;
+  email?: string;
+  mobile?: any;
+  address?: string;
 }

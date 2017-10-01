@@ -7,13 +7,13 @@ import { FirebaseService } from '../../services/firebase.service';
   styleUrls: ['./listings.component.scss']
 })
 export class ListingsComponent implements OnInit {
-  listings: any;
+  Harry: any;
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    this.firebaseService.getListings().subscribe(listings => {
-      console.log(listings);
-      this.listings = listings;
+    this.firebaseService.getListings().subscribe(Harry => {
+      console.log(Harry);
+      this.Harry = Harry;
     });
   }
 

@@ -8,10 +8,4 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class AppComponent {
   title = 'app works!';
-
-  // items: FirebaseListObservable<any[]>;
-  //
-  // constructor(private af: AngularFire) {
-  //   this.items = af.database.list('Harry');
-  // }
 }

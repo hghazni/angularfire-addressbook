@@ -1,21 +1,8 @@
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let listing of Harry">
-    <!--<a routerLink="'/listing/'+listing.$key">{{listing.name}}</a>-->
-    <a routerLink="'/listing/'+ {{listing.$key}}">{{listing.name}}</a>
-  </li>
-  <li class="list-group-item" *ngFor="let listing of Harry">
-    <a>{{listing.email}}</a>
-  </li>
-  <li class="list-group-item" *ngFor="let listing of Harry">
-    <a>{{listing.mobile}}</a>
-  </li>
-  <li class="list-group-item" *ngFor="let listing of Harry">
-    <a>{{listing.address}}</a>
+    <p><strong>Name: </strong>{{listing.name}}</p>
+    <p><strong>Email: </strong>{{listing.email}}</p>
+    <p><strong>Mobile: </strong>{{listing.mobile}}</p>
+    <p><strong>Address: </strong>{{listing.address}}</p>
   </li>
 </ul>
-
-<!--<ul>-->
-  <!--<li *ngFor="let listing of Harry | async">-->
-    <!--{{listing.$key}}: {{listing.$value}}-->
-  <!--</li>-->
-<!--</ul>-->

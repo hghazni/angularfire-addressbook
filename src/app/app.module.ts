@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule} from 'angularfire2';
-import { firebaseConfig } from 'environments/firebase.config';
+
 import { FirebaseService } from './services/firebase.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +14,16 @@ import { ListingComponent } from './components/listing/listing.component';
 import { AddListingComponent } from './components/add-listing/add-listing.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+
+var config = {
+  apiKey: "AIzaSyDBJhQcXoiCnCUvpYeTDtHqJSV9sVjMN3w",
+  authDomain: "address-book-a27b4.firebaseapp.com",
+  databaseURL: "https://address-book-a27b4.firebaseio.com",
+  projectId: "address-book-a27b4",
+  storageBucket: "address-book-a27b4.appspot.com",
+  messagingSenderId: "525963784917"
+};
+
 
 const appRoutes: Routes  = [
   {path: '', component: HomeComponent },
@@ -37,7 +47,7 @@ const appRoutes: Routes  = [
     FormsModule,
     HttpModule,
     FlashMessagesModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(config),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [FirebaseService],

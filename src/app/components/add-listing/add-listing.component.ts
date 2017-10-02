@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
+import {AngularFire} from "angularfire2";
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class AddListingComponent implements OnInit {
   address: any;
 
   constructor(
-      private firebaseService: FirebaseService,
+      private af: AngularFire,
       private router: Router
   ) { }
 
@@ -28,9 +28,8 @@ export class AddListingComponent implements OnInit {
       mobile: this.mobile,
       address: this.address
     };
-    this.firebaseService.addListing(listing);
+    this.af.database.list('Harry/').push(listing);
 
-    this.router.navigate(['listings']);
   }
 
 }

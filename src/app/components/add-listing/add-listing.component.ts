@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFire} from "angularfire2";
+import {AngularFire} from 'angularfire2';
 import { Router } from '@angular/router';
 
 @Component({

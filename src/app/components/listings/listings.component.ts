@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import {Observable} from "rxjs/Observable";
+
 
 @Component({
   selector: 'app-listings',
@@ -7,14 +9,11 @@ import { FirebaseService } from '../../services/firebase.service';
   styleUrls: ['./listings.component.scss']
 })
 export class ListingsComponent implements OnInit {
-  Harry: any;
-  constructor(private firebaseService: FirebaseService) { }
-
-  ngOnInit() {
-    this.firebaseService.getListings().subscribe(Harry => {
-      console.log(Harry);
-      this.Harry = Harry;
-    });
+  items: Observable<any[]>;
+  constructor(db: AngularFireDatabase) {
+    this.items = db.list('Harry');
   }
 
+  ngOnInit() {
+  }
 }

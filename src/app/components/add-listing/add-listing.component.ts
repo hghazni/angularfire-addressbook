@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-listing.component.scss']
 })
 export class AddListingComponent implements OnInit {
+  $key: any;
   name: any;
   email: any;
   mobile: any;
@@ -29,7 +30,7 @@ export class AddListingComponent implements OnInit {
       address: this.address
     };
     this.af.database.list('Harry/').push(listing);
-
+    this.router.navigateByUrl('/listings');
   }
 
 }

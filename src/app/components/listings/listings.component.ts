@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import {AngularFire} from "angularfire2";
 
 @Component({
   selector: 'app-listings',
@@ -8,7 +7,6 @@ import {AngularFire} from "angularfire2";
   styleUrls: ['./listings.component.scss']
 })
 export class ListingsComponent implements OnInit {
-  af: AngularFire;
   items: FirebaseListObservable<any[]>;
   item: FirebaseObjectObservable<any[]>;
   constructor(private db: AngularFireDatabase) {
@@ -17,10 +15,10 @@ export class ListingsComponent implements OnInit {
   }
   deleteObject(itemKey) {
     this.db.object('/Harry/' + itemKey).remove();
-    this.items.subscribe(items => console.log('Item Key', items[0].$key));
   }
-
+  editObject(itemKey) {
+    console.log(itemKey);
+  }
   ngOnInit() {
-  this.items.subscribe(items => console.log('In bla bla bla ', items));
   }
 }

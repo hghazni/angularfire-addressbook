@@ -27,7 +27,8 @@ const appRoutes: Routes  = [
   {path: '', component: HomeComponent },
   {path: 'listings', component: ListingsComponent },
   {path: 'listings/:id', component: ListingsComponent },
-  {path: 'add-listings', component: AddListingComponent }
+  {path: 'add-listings', component: AddListingComponent },
+  {path: 'edit-listing', component: EditListingComponent}
 ];
 
 @NgModule({

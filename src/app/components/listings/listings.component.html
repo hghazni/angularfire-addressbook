@@ -5,7 +5,7 @@
     <p><strong>Mobile: </strong>{{item.mobile}}</p>
     <p><strong>Address: </strong>{{item.address}}</p>
     <div class="editDel row">
-      <div class="col-sm-2"><button class="btn-primary">Edit</button></div>
+      <div class="col-sm-2"><button class="btn-primary" (click)="editObject(this.item.$key)">Edit</button></div>
       <div class="col-sm-2"><button class="btn-danger" (click)="deleteObject(this.item.$key)">Delete</button></div>
     </div>
   </li>

@@ -15,8 +15,8 @@ export class ListingsComponent implements OnInit {
     this.items = this.db.list('Harry');
     this.item = this.db.object('/Harry');
   }
-  deleteObject() {
-    // this.item.remove();
+  deleteObject(itemKey) {
+    this.db.object('/Harry/' + itemKey).remove();
     this.items.subscribe(items => console.log('Item Key', items[0].$key));
   }
 
